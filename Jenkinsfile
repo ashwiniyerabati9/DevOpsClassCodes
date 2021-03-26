@@ -65,7 +65,7 @@ pipeline{
 				cat <<EOT>> dockerfile
 				From tomcat
 				ADD addressbook.war /usr/local/tomcat/webapps
-				EXPOSE 8080
+				EXPOSE 8090
 				CMD ["catalina.sh", "run"]
 				sudo docker build -t myimage:$BUILD_NUMBER .
 				sudo docker run -itd -P myimage:$BUILD_NUMBER'''
