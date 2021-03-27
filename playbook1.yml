@@ -8,7 +8,7 @@
   - name: start httpd
     service: name=httpd state=started
   - name: deploy html file
-    copy: src=/etc/ansible/index.html dest=/var/www/html
+    copy: /var/lib/jenkins/workspace/Ansible dest=/var/www/html
     notify: restart httpd
   handlers:
   - name: restart httpd
