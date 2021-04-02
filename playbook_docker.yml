@@ -9,8 +9,10 @@
     service: name=docker state=started
   - name: install git
     yum: name=git state=present
+  - name: get repo
+    git: repo=https://github.com/ashwiniyerabati9/DevOpsClassCodes.git dest=/tmp/AddressbookDeploy
   - name: copy address book
-    copy: src="/var/lib/jenkins/workspace/Build Pipeline/target/addressbook.war" dest=/tmp/Addressbook1/
+    copy: src="/var/lib/jenkins/workspace/Build Pipeline/target/addressbook.war" dest=/tmp/AddressbookDeploy
   - name: Build Dockerfile
     command: chdir=/tmp/Addressbook docker build -t addressbook:ansible .
   - name: run Image
