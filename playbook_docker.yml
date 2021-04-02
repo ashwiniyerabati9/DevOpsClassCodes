@@ -10,8 +10,8 @@
   - name: install git
     yum: name=git state=present
   - name: copy address book
-    copy: src='/var/lib/jenkins/workspace/Build Pipeline/target/addressbook.war' dest=/tmp/gitrepo
+    copy: src='/var/lib/jenkins/workspace/Build Pipeline/target/addressbook.war' dest=/tmp/Addressbook
   - name: Build Dockerfile
-    command: chdir=/tmp/gitrepo docker build -t addressbook:ansible .
+    command: chdir=/tmp/Addressbook docker build -t addressbook:ansible .
   - name: run Image
     command: docker run -itd -P addressbook:ansible
