@@ -14,6 +14,6 @@
   - name: copy address book
     copy: src="/var/lib/jenkins/workspace/Build Pipeline/target/addressbook.war" dest=/tmp/AddressbookDeploy
   - name: Build Dockerfile
-    command: chdir=/tmp/Addressbook docker build -t addressbook:ansible .
+    command: chdir=/tmp/AddressbookDeploy docker build -t addressbook:ansible .
   - name: run Image
     command: docker run -itd -P addressbook:ansible
